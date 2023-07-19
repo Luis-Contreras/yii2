@@ -14,10 +14,6 @@ use Yii;
  * @property int $weight
  * @property string $category
  * @property int $stock
- * @property int|null $isDelete
- * @property string|null $createAt
- * @property string|null $updateAt
- * @property string|null $deleteAt
  */
 class Product extends \yii\db\ActiveRecord
 {
@@ -36,8 +32,7 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             [['name_product', 'reference', 'price', 'weight', 'category', 'stock'], 'required'],
-            [['price', 'weight', 'stock', 'isDelete'], 'integer'],
-            [['createAt', 'updateAt', 'deleteAt'], 'safe'],
+            [['price', 'weight', 'stock'], 'integer'],
             [['name_product', 'reference', 'category'], 'string', 'max' => 100],
         ];
     }
@@ -54,11 +49,7 @@ class Product extends \yii\db\ActiveRecord
             'price' => 'Price',
             'weight' => 'Weight',
             'category' => 'Category',
-            'stock' => 'Stock',
-            'isDelete' => 'Is Delete',
-            'createAt' => 'Create At',
-            'updateAt' => 'Update At',
-            'deleteAt' => 'Delete At',
+            'stock' => 'Stock'
         ];
     }
 }
